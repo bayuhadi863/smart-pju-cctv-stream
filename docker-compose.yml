@@ -1,0 +1,11 @@
+# version: '3.8'
+services:
+  cctv-stream:
+    build: .
+    container_name: cctv-stream
+    image: bayuhadi863/smart-pju-cctv-stream:latest
+    ports:
+      - "3001:80"  # Mengarahkan Nginx di container ke host
+    volumes:
+      - ./live:/var/www/html/live  # Mount folder live untuk output HLS
+    restart: always
